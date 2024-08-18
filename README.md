@@ -28,5 +28,39 @@ Ensure you have Python 3.11 or later installed. You will also need the following
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/chatbot-project.git
-   cd chatbot-project
+   git clone https://github.com/yourusername/django-chatbot.git
+   cd django-chatbot
+
+2. **Set Up Django Frontend:**
+
+   ```bash
+   pip install -r requirements.txt
+   python manage.py migrate
+
+3. **Navigate to the Flask backend directory and install the necessary packages:**
+
+   ```bash
+   cd flask_backend
+   pip install Flask Flask-SocketIO Flask-CORS
+
+###  Project Structure
+- flask_backend/: Contains the Flask application code.
+- django_frontend/: Contains the Django application code.
+- requirements.txt: Python dependencies for Django.
+###  Troubleshooting
+- Verify that WebSocket and REST requests are properly routed.
+- Ensure that Flask is running on port 5000 and Django is running on port 8000.
+- Verify that WebSocket and REST requests are properly routed.
+  
+###  Running the Application
+- Step 1. Start the Flask backend:
+   ```bash
+   python flask_app.py
+
+- Step 2. Start the Django development server:
+  ```bash
+  python manage.py runserver
+
+- Step 3. Start Daphne:
+ ```bash
+ daphne -p 8001 django_frontend.asgi:application
