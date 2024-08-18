@@ -1,4 +1,4 @@
-# Django Chatbot - Proof of Concept
+# Chatbot Django - Proof of Concept
 
 This project integrates a Django frontend with WebSocket support using Django Channels, and a Flask backend that handles both REST API requests and WebSocket connections. 
 
