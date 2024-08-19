@@ -53,14 +53,14 @@ Ensure you have Python 3.11 or later installed. You will also need the following
 - Verify that WebSocket and REST requests are properly routed.
   
 ###  Running the Application
-- Step 1. Start the Flask backend:
+- Step 1. Start the Flask backend chatbot-django/django_backend
    ```bash
    python flask_app.py
 
-- Step 2. Start the Django development server:
+- Step 2. Start the Django development server from folder chatbot-django/django_frontend/
   ```bash
   python manage.py runserver
 
-- Step 3. Goto to the folder chatbot_django/ Start Daphne:
+- Step 3. Go to the folder chatbot-django/django_frontend/  and run Daphne
  ```bash
  daphne -p 8001 chatbot_django.asgi:application
