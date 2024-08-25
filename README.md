@@ -63,4 +63,5 @@ Ensure you have Python 3.11 or later installed. You will also need the following
 
 - Step 3. Start Daphne:
  ```bash
- daphne -p 8001 django_frontend.asgi:application
+ daphne -p 8001 chatbot_django.asgi:application
+
