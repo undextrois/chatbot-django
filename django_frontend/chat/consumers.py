@@ -1,8 +1,7 @@
 # In chat/consumers.py
 import json
-import httpx
-
 from channels.generic.websocket import AsyncWebsocketConsumer
+import httpx
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -15,12 +14,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
 
-        # Send the message to Flask API
+        # Direct asynchronous call to an API or processing logic
         async with httpx.AsyncClient() as client:
             response = await client.post('http://127.0.0.1:5000/handle_message', json={'message': message})
             response_data = response.json()
 
-        response_message = response_data.get('response', 'No response from API')
+        # Extract just the bot's response message
+        response_message = response_data.get('response', '')
 
         # Send the response back to the WebSocket
         await self.send(text_data=json.dumps({
