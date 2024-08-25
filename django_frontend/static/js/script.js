@@ -5,18 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageInput = document.getElementById('message-input');
     const sendBtn = document.getElementById('send-btn');
 
+    function createMessageBubble(content, type) {
+        const messageElement = document.createElement('div');
+        messageElement.className = `message ${type}`;
+        const p = document.createElement('p');
+        p.innerText = content;
+        messageElement.appendChild(p);
+        messages.appendChild(messageElement);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
-        const p = document.createElement('p');
-        p.innerText = data.message;
-        messages.appendChild(p);
-        messages.scrollTop = messages.scrollHeight;
-        console.log("Message from server ", data.message);
+        createMessageBubble(data.message, 'incoming');
+        console.log("Message from server: ", data.message);
     };
 
     sendBtn.onclick = function() {
         const msg = messageInput.value;
         if (msg) {
+            createMessageBubble(msg, 'outgoing');
             chatSocket.send(JSON.stringify({ 'message': msg }));
             messageInput.value = '';
         }
