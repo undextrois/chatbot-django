@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot with Django Channels</title>
+    <title>Chat</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div id="chatbox">
-        <div id="messages"></div>
-        <input id="message-input" type="text" placeholder="Type your message...">
-        <button id="send-btn">Send</button>
+    <div id="chat-container">
+        <div id="messages" class="messages"></div>
+        <div id="message-input-container">
+            <input type="text" id="message-input" placeholder="Type a message">
+            <button id="send-btn">Send</button>
+        </div>
     </div>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
